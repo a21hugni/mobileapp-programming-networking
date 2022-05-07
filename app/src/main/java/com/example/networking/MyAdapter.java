@@ -12,7 +12,10 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-    List<String> mountains = Arrays.asList("Kinnekulle", "Billingen", "Matterhorn", "Kebnekaise", "Mount Everest");
+    private List<Mountains> mountains;
+    public MyAdapter(List<Mountains> mountains) {
+        this.mountains = mountains;
+    }
 
     @NonNull
     @Override
@@ -23,7 +26,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.name.setText(mountains.get(position));
+        holder.name.setText(mountains.get(position).getName());
+        holder.location.setText(mountains.get(position).getLocation());
+        holder.size.setText(mountains.get(position).getSize());
     }
 
     @Override
