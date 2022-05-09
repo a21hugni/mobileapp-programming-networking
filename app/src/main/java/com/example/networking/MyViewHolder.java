@@ -10,13 +10,11 @@ import org.w3c.dom.Text;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
     public TextView name;
-    public TextView location;
     public TextView size;
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
         name = itemView.findViewById(R.id.name);
-        location = itemView.findViewById(R.id.location);
         size = itemView.findViewById(R.id.size);
     }
 }
