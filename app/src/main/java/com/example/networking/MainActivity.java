@@ -18,8 +18,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
-    private RecyclerView recyclerView;
-    private List<Mountains> mountainsList;
+    private RecyclerView RecyclerView;
+    private ArrayList<Mountains> listOfMountains;
     private MyAdapter adapter;
 
     @Override
@@ -27,22 +27,21 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new JsonTask( this).execute(JSON_URL);
+        new JsonTask(this).execute(JSON_URL);
 
-        recyclerView = findViewById(R.id.recycler_view);
-        mountainsList = new ArrayList<Mountains>();
-        adapter = new MyAdapter(mountainsList);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerView = findViewById(R.id.recycler_view);
+        listOfMountains = new ArrayList<Mountains>();
+        adapter = new MyAdapter(listOfMountains);
+        RecyclerView.setAdapter(adapter);
+        RecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
     public void onPostExecute(String json) {
         Gson gson = new Gson();
-        Type type = new TypeToken<ArrayList<Mountains>>(){}.getType();
-        ArrayList<Mountains> skit = gson.fromJson(json, type);
-        mountainsList.addAll(skit);
+        Type type = new TypeToken<ArrayList<Mountains>>() {}.getType();
+        ArrayList<Mountains> data = gson.fromJson(json, type);
+        listOfMountains.addAll(data);
         adapter.notifyDataSetChanged();
     }
-
 }

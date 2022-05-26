@@ -3,7 +3,6 @@ package com.example.networking;
 import androidx.annotation.NonNull;
 
 public class Mountains {
-
     private String name;
     private int size;
 
@@ -29,3 +28,4 @@ public class Mountains {
     }
 
 }
+

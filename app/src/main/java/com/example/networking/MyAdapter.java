@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
-
-    private List<Mountains> mountains;
-    public MyAdapter(List<Mountains> mountains) {
-        this.mountains = mountains;
+    private List<Mountains> listOfMountains;
+    public MyAdapter(List<Mountains> listOfMountains) {
+        this.listOfMountains = listOfMountains;
     }
 
     @NonNull
@@ -26,12 +26,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.name.setText(mountains.get(position).getName());
-        holder.size.setText(String.valueOf(mountains.get(position).getSize()));
+        holder.name.setText(listOfMountains.get(position).getName());
+        holder.size.setText(String.valueOf(listOfMountains.get(position).getSize()));
     }
 
     @Override
     public int getItemCount() {
-        return mountains.size();
+        return listOfMountains.size();
     }
 }
