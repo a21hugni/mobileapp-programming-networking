@@ -25,7 +25,6 @@ Alla variabler har deklarerats innan och initieras de i MainActivity.
 ```
 Denna kod är hämtad från min adapter-klass och det är här jag har användt setText. Notera att jag var tvungen att ta String.valueOf på size p.g.a. att det är en integer. 
 
-Bilder läggs i samma mapp som markdown-filen.
 
 ![](networking.png)
 
